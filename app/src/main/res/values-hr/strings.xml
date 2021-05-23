@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sportogram</string>
+    <string name="errorTitle">Greška</string>
+    <string name="errorConfirmation">U redu</string>
+    <string name="errorDescription">Ups, došlo je do neočekivane pogreške</string>
+    <string name="views">Pogledi: </string>
+    <string name="createdBefore">Kreirano prije: </string>
+    <string name="description">Opis: </string>
+    <string name="updatingFeed">Ažuriranje naslovnice, molim sačekajte…</string>
+    <string name="errorText">Izgleda da je nešto pošlo po krivu. Provjerite svoju mrežnu povezanost ili pokušajte ponovno.</string>
+    <string name="retry">Pokušaj ponovno</string>
+    <string name="noInternetConnection">Trenutno nemate internet konekciju. Aplikacija neće fukcionirati ispravno dok ju ne obnovite.</string>
+</resources>

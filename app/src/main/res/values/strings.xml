@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sportogram</string>
+    <string name="errorTitle">Error</string>
+    <string name="errorDescription">Ups, we experienced and unexpected error</string>
+    <string name="errorConfirmation">Okay</string>
+    <string name="views">Views: </string>
+    <string name="createdBefore">Created before: </string>
+    <string name="description">Description: </string>
+    <string name="updatingFeed">Updating feed, please wait…</string>
+    <string name="errorText">It looks like something went wrong. Check your internet connection or try again.</string>
+    <string name="retry">Retry</string>
+    <string name="noInternetConnection">You currently have no internet connection. Application will not function properly until connection is renewed.</string>
+</resources>
