@@ -40,7 +40,7 @@ class VideoPlayerRecyclerView : RecyclerView {
     private var thumbnail: ImageView? = null
     private var volumeControl: ImageView? = null
     private lateinit var progressBar: ProgressBar
-    private lateinit var viewHolderParent: View
+    private var viewHolderParent: View? = null
     private lateinit var frameLayout: FrameLayout
     private lateinit var videoSurfaceView: PlayerView
     private lateinit var videoPlayer: SimpleExoPlayer
@@ -104,7 +104,7 @@ class VideoPlayerRecyclerView : RecyclerView {
         addOnChildAttachStateChangeListener(object : OnChildAttachStateChangeListener {
             override fun onChildViewAttachedToWindow(view: View) {}
             override fun onChildViewDetachedFromWindow(view: View) {
-                if (viewHolderParent == view) {
+                if (viewHolderParent != null && viewHolderParent == view) {
                     resetVideoView()
                 }
             }
@@ -189,6 +189,7 @@ class VideoPlayerRecyclerView : RecyclerView {
         // remove any old surface views from previously playing videos
         videoSurfaceView.visibility = INVISIBLE
         removeVideoView(videoSurfaceView)
+
         val currentPosition =
             targetPosition - (layoutManager as LinearLayoutManager?)!!.findFirstVisibleItemPosition()
         val child = getChildAt(currentPosition) ?: return
@@ -199,7 +200,7 @@ class VideoPlayerRecyclerView : RecyclerView {
         viewHolderParent = holder.itemView
         frameLayout = holder.itemView.findViewById(R.id.PostFrameLayout)
         videoSurfaceView.player = videoPlayer
-        viewHolderParent.setOnClickListener(videoViewClickListener)
+        viewHolderParent!!.setOnClickListener(videoViewClickListener)
         val mediaItem = MediaItem.fromUri(posts[targetPosition].video.url)
         videoPlayer.setMediaItem(mediaItem)
         videoPlayer.prepare()
@@ -230,7 +231,7 @@ class VideoPlayerRecyclerView : RecyclerView {
         if (index >= 0) {
             parent.removeViewAt(index)
             isVideoViewAdded = false
-            viewHolderParent.setOnClickListener(null)
+            viewHolderParent!!.setOnClickListener(null)
         }
     }
 
